@@ -3,6 +3,7 @@ import pytest
 from mollie.api.error import IdentifierError
 from mollie.api.objects.customer import Customer
 from mollie.api.objects.method import Method
+from mollie.api.objects.payment import Payment
 from mollie.api.objects.subscription import Subscription
 
 from .utils import assert_list_object
@@ -70,7 +71,7 @@ def test_get_customer_subscription_by_customer_object(client, response):
     assert subscription.customer.id == CUSTOMER_ID
 
 
-def test_customer_subscription_get_related_customer(client, response):
+def test_customer_subscription_related_customer(client, response):
     """Retrieve a related customer object from a subscription."""
     response.get('https://api.mollie.com/v2/customers/%s/subscriptions/%s' % (CUSTOMER_ID, SUBSCRIPTION_ID),
                  'subscription_single')
@@ -79,6 +80,15 @@ def test_customer_subscription_get_related_customer(client, response):
     subscription = client.customer_subscriptions.with_parent_id(CUSTOMER_ID).get(SUBSCRIPTION_ID)
     assert isinstance(subscription.customer, Customer)
     assert subscription.customer.id == CUSTOMER_ID
+
+
+def test_customer_subscription_related_payments(client, response):
+    """Retrieve a related list of payments from a subscription."""
+    response.get('https://api.mollie.com/v2/customers/%s/subscriptions/%s' % (CUSTOMER_ID, SUBSCRIPTION_ID),
+                 'subscription_single')
+
+    subscription = client.customer_subscriptions.with_parent_id(CUSTOMER_ID).get(SUBSCRIPTION_ID)
+    assert_list_object(subscription.payments, Payment)
 
 
 def test_cancel_customer_subscription(client, response):

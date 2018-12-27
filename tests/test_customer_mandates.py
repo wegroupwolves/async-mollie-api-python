@@ -107,3 +107,8 @@ def test_update_customer_mandate(client, response):
     mandate = client.customer_mandates.with_parent_id(CUSTOMER_ID).update(MANDATE_ID, data=data)
     assert isinstance(mandate, Mandate)
     assert mandate.id == MANDATE_ID
+
+
+def test_revoke_customer_mandate():
+    # TODO
+    pass
