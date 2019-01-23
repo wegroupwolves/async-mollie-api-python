@@ -1,0 +1,43 @@
+exclude: ^(blib2to3/|profiling/|tests/data/)
+repos:
+- repo: https://github.com/python-modernize/python-modernize
+  rev: a234ce4e1
+  hooks:
+  - id: python-modernize
+-   repo: git@github.com:pre-commit/pre-commit-hooks
+    rev: v2.1.0
+    hooks:
+    -   id: no-commit-to-branch
+        args: [--branch, staging, --branch, master]
+    -   id: detect-private-key
+    -   id: requirements-txt-fixer
+    -   id: check-case-conflict
+    -   id: check-json
+    -   id: check-merge-conflict
+    -   id: check-symlinks
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: pretty-format-json
+        args:
+        - --autofix
+    -   id: trailing-whitespace
+-   repo: local
+    hooks:
+    - id: black
+      name: black
+      language: system
+      entry: black
+      types: [python]
+    - id: flake8
+      args: ['--ignore', 'W503,E501']
+      name: flake8
+      language: system
+      entry: flake8
+      types: [python]
+    # - id: mypy
+    #   args: ['--ignore-missing-imports', '--follow-imports=skip', 'app']
+    #   name: mypy
+    #   language: system
+    #   entry: mypy
+    #   types: [python]
+    #   exclude: ^docs/conf.py

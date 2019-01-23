@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import sys
 
 
@@ -17,7 +18,7 @@ class Error(Exception):
         We can't have string representation containing unicode characters in Python 2.
         """
         if sys.version_info.major == 2:
-            return self.message.encode('ascii', errors='ignore')
+            return self.message.encode("ascii", errors="ignore")
         else:
             return super(Error, self).__str__()
 
@@ -53,11 +54,11 @@ class ResponseError(Error):
     field = None
 
     def __init__(self, resp=None):
-        message = resp['detail']
+        message = resp["detail"]
         super(ResponseError, self).__init__(message)
-        self.status = resp['status']
-        if 'field' in resp:
-            self.field = resp['field']
+        self.status = resp["status"]
+        if "field" in resp:
+            self.field = resp["field"]
 
     @staticmethod
     def factory(resp):
@@ -67,7 +68,7 @@ class ResponseError(Error):
         All errors are documented: https://docs.mollie.com/guides/handling-errors#all-possible-status-codes
         More exceptions should be added here when appropriate, and when useful examples of API errors are available.
         """
-        status = resp['status']
+        status = resp["status"]
         if status == 401:
             return UnauthorizedError(resp)
         elif status == 404:

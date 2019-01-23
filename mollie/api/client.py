@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import json
 import platform
 import re
@@ -23,34 +24,44 @@ try:
     from urllib.parse import urlencode
 except ImportError:
     # support python 2
-    from urllib import urlencode
+    from six.moves.urllib.parse import urlencode
 
 
 class Client(object):
     CLIENT_VERSION = VERSION
-    API_ENDPOINT = 'https://api.mollie.com'
-    API_VERSION = 'v2'
-    UNAME = ' '.join(platform.uname())
-    USER_AGENT = ' '.join(vs.replace(r'\s+', '-') for vs in [
-        'Mollie/{client_version}'.format(client_version=CLIENT_VERSION),
-        'Python/{python_version}'.format(python_version=platform.python_version()),
-        'OpenSSL/{ssl_version}'.format(ssl_version=ssl.OPENSSL_VERSION.split(' ')[1]),
-    ])
+    API_ENDPOINT = "https://api.mollie.com"
+    API_VERSION = "v2"
+    UNAME = " ".join(platform.uname())
+    USER_AGENT = " ".join(
+        vs.replace(r"\s+", "-")
+        for vs in [
+            "Mollie/{client_version}".format(client_version=CLIENT_VERSION),
+            "Python/{python_version}".format(python_version=platform.python_version()),
+            "OpenSSL/{ssl_version}".format(
+                ssl_version=ssl.OPENSSL_VERSION.split(" ")[1]
+            ),
+        ]
+    )
 
     @staticmethod
     def validate_api_endpoint(api_endpoint):
-        return api_endpoint.strip().rstrip('/')
+        return api_endpoint.strip().rstrip("/")
 
     @staticmethod
     def validate_api_key(api_key):
         api_key = api_key.strip()
-        if not re.compile(r'^(live|test)_\w+$').match(api_key):
+        if not re.compile(r"^(live|test)_\w+$").match(api_key):
             raise RequestSetupError(
-                "Invalid API key: '{api_key}'. An API key must start with 'test_' or 'live_'.".format(api_key=api_key))
+                "Invalid API key: '{api_key}'. An API key must start with 'test_' or 'live_'.".format(
+                    api_key=api_key
+                )
+            )
         return api_key
 
     def __init__(self, api_key=None, api_endpoint=None, timeout=10):
-        self.api_endpoint = self.validate_api_endpoint(api_endpoint or self.API_ENDPOINT)
+        self.api_endpoint = self.validate_api_endpoint(
+            api_endpoint or self.API_ENDPOINT
+        )
         self.api_version = self.API_VERSION
         self.api_key = self.validate_api_key(api_key) if api_key else None
         self.timeout = timeout
@@ -77,40 +88,47 @@ class Client(object):
 
     def perform_http_call(self, http_method, path, data=None, params=None):
         if not self.api_key:
-            raise RequestSetupError('You have not set an API key. Please use set_api_key() to set the API key.')
-        if path.startswith('%s/%s' % (self.api_endpoint, self.api_version)):
+            raise RequestSetupError(
+                "You have not set an API key. Please use set_api_key() to set the API key."
+            )
+        if path.startswith("%s/%s" % (self.api_endpoint, self.api_version)):
             url = path
         else:
-            url = '%s/%s/%s' % (self.api_endpoint, self.api_version, path)
+            url = "%s/%s/%s" % (self.api_endpoint, self.api_version, path)
 
         if data is not None:
             try:
                 data = json.dumps(data)
             except Exception as err:
-                raise RequestSetupError("Error encoding parameters into JSON: '{error}'.".format(error=err))
+                raise RequestSetupError(
+                    "Error encoding parameters into JSON: '{error}'.".format(error=err)
+                )
 
         querystring = generate_querystring(params)
         if querystring:
-            url += '?' + querystring
+            url += "?" + querystring
             params = None
 
         try:
             response = requests.request(
-                http_method, url,
+                http_method,
+                url,
                 verify=True,
                 headers={
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer {api_key}'.format(api_key=self.api_key),
-                    'Content-Type': 'application/json',
-                    'User-Agent': self.USER_AGENT,
-                    'X-Mollie-Client-Info': self.UNAME,
+                    "Accept": "application/json",
+                    "Authorization": "Bearer {api_key}".format(api_key=self.api_key),
+                    "Content-Type": "application/json",
+                    "User-Agent": self.USER_AGENT,
+                    "X-Mollie-Client-Info": self.UNAME,
                 },
                 params=params,
                 data=data,
                 timeout=self.timeout,
             )
         except Exception as err:
-            raise RequestError('Unable to communicate with Mollie: {error}'.format(error=err))
+            raise RequestError(
+                "Unable to communicate with Mollie: {error}".format(error=err)
+            )
         return response
 
 
@@ -133,7 +151,7 @@ def generate_querystring(params):
         else:
             # encode dictionary with square brackets
             for key, sub_value in sorted(value.items()):
-                composed = '{param}[{key}]'.format(param=param, key=key)
+                composed = "{param}[{key}]".format(param=param, key=key)
                 parts.append(urlencode({composed: sub_value}))
     if parts:
-        return '&'.join(parts)
+        return "&".join(parts)

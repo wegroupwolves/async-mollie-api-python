@@ -6,7 +6,7 @@ class OrderLines(Base):
     order_id = None
 
     def get_resource_name(self):
-        return 'orders/{order_id}/lines'.format(order_id=self.order_id)
+        return "orders/{order_id}/lines".format(order_id=self.order_id)
 
     def get_resource_object(self, result):
         return OrderLine(result, client=self.client)

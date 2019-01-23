@@ -1,12 +1,12 @@
 {
-  "status": 422,
-  "title": "Unprocessable Entity",
-  "detail": "Order line 1 is invalid. VAT amount is off. Expected VAT amount to be €3.47 (21.00% over €20.00), got €3.10",
-  "field": "lines.1.vatAmount",
   "_links": {
     "documentation": {
       "href": "https://docs.mollie.com/guides/handling-errors",
       "type": "text/html"
     }
-  }
+  },
+  "detail": "Order line 1 is invalid. VAT amount is off. Expected VAT amount to be \u20ac3.47 (21.00% over \u20ac20.00), got \u20ac3.10",
+  "field": "lines.1.vatAmount",
+  "status": 422,
+  "title": "Unprocessable Entity"
 }

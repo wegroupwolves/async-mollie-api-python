@@ -7,62 +7,58 @@ class Refund(Base):
     @classmethod
     def get_resource_class(cls, client):
         from ..resources.refunds import Refunds
+
         return Refunds(client)
 
-    STATUS_QUEUED = 'queued'
-    STATUS_PENDING = 'pending'
-    STATUS_PROCESSING = 'processing'
-    STATUS_REFUNDED = 'refunded'
+    STATUS_QUEUED = "queued"
+    STATUS_PENDING = "pending"
+    STATUS_PROCESSING = "processing"
+    STATUS_REFUNDED = "refunded"
 
     # documented properties
 
     @property
     def resource(self):
-        return self._get_property('resource')
+        return self._get_property("resource")
 
     @property
     def id(self):
-        return self._get_property('id')
+        return self._get_property("id")
 
     @property
     def amount(self):
-        return self._get_property('amount')
+        return self._get_property("amount")
 
     @property
     def settlement_amount(self):
-        return self._get_property('settlementAmount')
+        return self._get_property("settlementAmount")
 
     @property
     def description(self):
-        return self._get_property('description')
+        return self._get_property("description")
 
     @property
     def status(self):
-        return self._get_property('status')
+        return self._get_property("status")
 
     @property
     def lines(self):
         """Return the lines for this refund."""
-        lines = self._get_property('lines') or []
-        result = {
-            '_embedded': {
-                'lines': lines,
-            },
-            'count': len(lines),
-        }
+        lines = self._get_property("lines") or []
+        result = {"_embedded": {"lines": lines}, "count": len(lines)}
         return List(result, OrderLine, client=self.client)
 
     @property
     def payment_id(self):
-        return self._get_property('paymentId')
+        return self._get_property("paymentId")
 
     @property
     def order_id(self):
-        return self._get_property('orderId')
+        return self._get_property("orderId")
 
     @property
     def created_at(self):
-        return self._get_property('createdAt')
+        return self._get_property("createdAt")
 
     # documented _links
 
@@ -70,7 +66,8 @@ class Refund(Base):
     def payment(self):
         """Return the payment for this refund."""
         from .payment import Payment
-        url = self._get_link('payment')
+
+        url = self._get_link("payment")
         if url:
             resp = self._resource.perform_api_call(self._resource.REST_READ, url)
             return Payment(resp)
@@ -82,7 +79,7 @@ class Refund(Base):
 
         TODO: Before we can return an Settlement object, we need to implement the Setlement API.
         """
-        url = self._get_link('settlement')
+        url = self._get_link("settlement")
         if url:
             resp = self._resource.perform_api_call(self._resource.REST_READ, url)
             return resp
@@ -92,7 +89,7 @@ class Refund(Base):
         """Return the order for this refund."""
         from ..resources.orders import Order
 
-        url = self._get_link('order')
+        url = self._get_link("order")
         if url:
             resp = self._resource.perform_api_call(self._resource.REST_READ, url)
             return Order(resp, client=self.client)

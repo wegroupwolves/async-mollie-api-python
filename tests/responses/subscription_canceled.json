@@ -1,24 +1,5 @@
 {
-  "resource": "subscription",
-  "id": "sub_rVKGtNd6s3",
-  "mode": "live",
-  "createdAt": "2018-06-01T12:23:34+00:00",
-  "status": "canceled",
-  "amount": {
-    "value": "25.00",
-    "currency": "EUR"
-  },
-  "times": 4,
-  "interval": "3 months",
-  "description": "Quarterly payment",
-  "method": null,
-  "webhookUrl": "https://webshop.example.org/payments/webhook",
-  "canceledAt": "2018-08-01T11:04:21+00:00",
   "_links": {
-    "self": {
-      "href": "https://api.mollie.com/v2/customers/cst_8wmqcHMN4U/subscriptions/sub_rVKGtNd6s3",
-      "type": "application/hal+json"
-    },
     "customer": {
       "href": "https://api.mollie.com/v2/customers/cst_8wmqcHMN4U",
       "type": "application/hal+json"
@@ -26,6 +7,25 @@
     "documentation": {
       "href": "https://docs.mollie.com/reference/v2/subscriptions-api/cancel-subscription",
       "type": "text/html"
+    },
+    "self": {
+      "href": "https://api.mollie.com/v2/customers/cst_8wmqcHMN4U/subscriptions/sub_rVKGtNd6s3",
+      "type": "application/hal+json"
     }
-  }
+  },
+  "amount": {
+    "currency": "EUR",
+    "value": "25.00"
+  },
+  "canceledAt": "2018-08-01T11:04:21+00:00",
+  "createdAt": "2018-06-01T12:23:34+00:00",
+  "description": "Quarterly payment",
+  "id": "sub_rVKGtNd6s3",
+  "interval": "3 months",
+  "method": null,
+  "mode": "live",
+  "resource": "subscription",
+  "status": "canceled",
+  "times": 4,
+  "webhookUrl": "https://webshop.example.org/payments/webhook"
 }

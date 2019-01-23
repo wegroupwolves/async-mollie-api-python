@@ -1,167 +1,5 @@
 {
-  "resource": "order",
-  "id": "ord_kEn1PlbGa",
-  "profileId": "pfl_URR55HPMGx",
-  "method": "ideal",
-  "amount": {
-    "value": "1027.99",
-    "currency": "EUR"
-  },
-  "status": "created",
-  "isCancelable": true,
-  "metadata": {
-    "order_id": "1337",
-    "description": "Lego cars"
-  },
-  "createdAt": "2018-08-02T09:29:56+00:00",
-  "expiresAt": "2018-08-30T09:29:56+00:00",
-  "mode": "live",
-  "locale": "nl_NL",
-  "billingAddress": {
-    "streetAndNumber": "Keizersgracht 313",
-    "city": "Amsterdam",
-    "region": "Noord-Holland",
-    "postalCode": "1234AB",
-    "country": "NL",
-    "title": "Dhr.",
-    "givenName": "Piet",
-    "familyName": "Mondriaan",
-    "email": "piet@mondriaan.com",
-    "phone": "+31309202070"
-  },
-  "consumerDateOfBirth": "1958-01-31",
-  "orderNumber": "1337",
-  "shippingAddress": {
-    "streetAndNumber": "Keizersgracht 313",
-    "streetAdditional": "4th floor",
-    "city": "Haarlem",
-    "region": "Noord-Holland",
-    "postalCode": "5678AB",
-    "country": "NL",
-    "title": "Mr.",
-    "givenName": "Chuck",
-    "familyName": "Norris",
-    "email": "norris@chucknorrisfacts.net"
-  },
-  "redirectUrl": "https://example.org/redirect",
-  "webhookUrl": "https://example.org/webhook",
-  "lines": [
-    {
-      "resource": "orderline",
-      "id": "odl_dgtxyl",
-      "orderId": "ord_pbjz8x",
-      "name": "LEGO 42083 Bugatti Chiron",
-      "sku": "5702016116977",
-      "type": "physical",
-      "status": "created",
-      "isCancelable": true,
-      "quantity": 2,
-      "quantityShipped": 0,
-      "amountShipped": {
-        "value": "0.00",
-        "currency": "EUR"
-      },
-      "quantityRefunded": 0,
-      "amountRefunded": {
-        "value": "0.00",
-        "currency": "EUR"
-      },
-      "quantityCanceled": 0,
-      "amountCanceled": {
-        "value": "0.00",
-        "currency": "EUR"
-      },
-      "shippableQuantity": 0,
-      "refundableQuantity": 0,
-      "cancelableQuantity": 0,
-      "unitPrice": {
-        "value": "399.00",
-        "currency": "EUR"
-      },
-      "vatRate": "21.00",
-      "vatAmount": {
-        "value": "121.14",
-        "currency": "EUR"
-      },
-      "discountAmount": {
-        "value": "100.00",
-        "currency": "EUR"
-      },
-      "totalAmount": {
-        "value": "698.00",
-        "currency": "EUR"
-      },
-      "createdAt": "2018-08-02T09:29:56+00:00",
-      "_links": {
-        "productUrl": {
-          "href": "https://shop.lego.com/nl-NL/Bugatti-Chiron-42083",
-          "type": "text/html"
-        },
-        "imageUrl": {
-          "href": "https://sh-s7-live-s.legocdn.com/is/image//LEGO/42083_alt1?$main$",
-          "type": "text/html"
-        }
-      }
-    },
-    {
-      "resource": "orderline",
-      "id": "odl_jp31jz",
-      "orderId": "ord_pbjz8x",
-      "name": "LEGO 42056 Porsche 911 GT3 RS",
-      "sku": "5702015594028",
-      "type": "physical",
-      "status": "created",
-      "isCancelable": false,
-      "quantity": 1,
-      "quantityShipped": 0,
-      "amountShipped": {
-        "value": "0.00",
-        "currency": "EUR"
-      },
-      "quantityRefunded": 0,
-      "amountRefunded": {
-        "value": "0.00",
-        "currency": "EUR"
-      },
-      "quantityCanceled": 0,
-      "amountCanceled": {
-        "value": "0.00",
-        "currency": "EUR"
-      },
-      "shippableQuantity": 0,
-      "refundableQuantity": 0,
-      "cancelableQuantity": 0,
-      "unitPrice": {
-        "value": "329.99",
-        "currency": "EUR"
-      },
-      "vatRate": "21.00",
-      "vatAmount": {
-        "value": "57.27",
-        "currency": "EUR"
-      },
-      "totalAmount": {
-        "value": "329.99",
-        "currency": "EUR"
-      },
-      "createdAt": "2018-08-02T09:29:56+00:00",
-      "_links": {
-        "productUrl": {
-          "href": "https://shop.lego.com/nl-NL/Porsche-911-GT3-RS-42056",
-          "type": "text/html"
-        },
-        "imageUrl": {
-          "href": "https://sh-s7-live-s.legocdn.com/is/image/LEGO/42056?$PDPDefault$",
-          "type": "text/html"
-        }
-      }
-    }
-  ],
   "_links": {
-    "self": {
-      "href": "https://api.mollie.com/v2/orders/ord_pbjz8x",
-      "type": "application/hal+json"
-    },
     "checkout": {
       "href": "https://www.mollie.com/payscreen/order/checkout/pbjz8x",
       "type": "text/html"
@@ -169,6 +7,168 @@
     "documentation": {
       "href": "https://docs.mollie.com/reference/v2/orders-api/get-order",
       "type": "text/html"
+    },
+    "self": {
+      "href": "https://api.mollie.com/v2/orders/ord_pbjz8x",
+      "type": "application/hal+json"
     }
-  }
+  },
+  "amount": {
+    "currency": "EUR",
+    "value": "1027.99"
+  },
+  "billingAddress": {
+    "city": "Amsterdam",
+    "country": "NL",
+    "email": "piet@mondriaan.com",
+    "familyName": "Mondriaan",
+    "givenName": "Piet",
+    "phone": "+31309202070",
+    "postalCode": "1234AB",
+    "region": "Noord-Holland",
+    "streetAndNumber": "Keizersgracht 313",
+    "title": "Dhr."
+  },
+  "consumerDateOfBirth": "1958-01-31",
+  "createdAt": "2018-08-02T09:29:56+00:00",
+  "expiresAt": "2018-08-30T09:29:56+00:00",
+  "id": "ord_kEn1PlbGa",
+  "isCancelable": true,
+  "lines": [
+    {
+      "_links": {
+        "imageUrl": {
+          "href": "https://sh-s7-live-s.legocdn.com/is/image//LEGO/42083_alt1?$main$",
+          "type": "text/html"
+        },
+        "productUrl": {
+          "href": "https://shop.lego.com/nl-NL/Bugatti-Chiron-42083",
+          "type": "text/html"
+        }
+      },
+      "amountCanceled": {
+        "currency": "EUR",
+        "value": "0.00"
+      },
+      "amountRefunded": {
+        "currency": "EUR",
+        "value": "0.00"
+      },
+      "amountShipped": {
+        "currency": "EUR",
+        "value": "0.00"
+      },
+      "cancelableQuantity": 0,
+      "createdAt": "2018-08-02T09:29:56+00:00",
+      "discountAmount": {
+        "currency": "EUR",
+        "value": "100.00"
+      },
+      "id": "odl_dgtxyl",
+      "isCancelable": true,
+      "name": "LEGO 42083 Bugatti Chiron",
+      "orderId": "ord_pbjz8x",
+      "quantity": 2,
+      "quantityCanceled": 0,
+      "quantityRefunded": 0,
+      "quantityShipped": 0,
+      "refundableQuantity": 0,
+      "resource": "orderline",
+      "shippableQuantity": 0,
+      "sku": "5702016116977",
+      "status": "created",
+      "totalAmount": {
+        "currency": "EUR",
+        "value": "698.00"
+      },
+      "type": "physical",
+      "unitPrice": {
+        "currency": "EUR",
+        "value": "399.00"
+      },
+      "vatAmount": {
+        "currency": "EUR",
+        "value": "121.14"
+      },
+      "vatRate": "21.00"
+    },
+    {
+      "_links": {
+        "imageUrl": {
+          "href": "https://sh-s7-live-s.legocdn.com/is/image/LEGO/42056?$PDPDefault$",
+          "type": "text/html"
+        },
+        "productUrl": {
+          "href": "https://shop.lego.com/nl-NL/Porsche-911-GT3-RS-42056",
+          "type": "text/html"
+        }
+      },
+      "amountCanceled": {
+        "currency": "EUR",
+        "value": "0.00"
+      },
+      "amountRefunded": {
+        "currency": "EUR",
+        "value": "0.00"
+      },
+      "amountShipped": {
+        "currency": "EUR",
+        "value": "0.00"
+      },
+      "cancelableQuantity": 0,
+      "createdAt": "2018-08-02T09:29:56+00:00",
+      "id": "odl_jp31jz",
+      "isCancelable": false,
+      "name": "LEGO 42056 Porsche 911 GT3 RS",
+      "orderId": "ord_pbjz8x",
+      "quantity": 1,
+      "quantityCanceled": 0,
+      "quantityRefunded": 0,
+      "quantityShipped": 0,
+      "refundableQuantity": 0,
+      "resource": "orderline",
+      "shippableQuantity": 0,
+      "sku": "5702015594028",
+      "status": "created",
+      "totalAmount": {
+        "currency": "EUR",
+        "value": "329.99"
+      },
+      "type": "physical",
+      "unitPrice": {
+        "currency": "EUR",
+        "value": "329.99"
+      },
+      "vatAmount": {
+        "currency": "EUR",
+        "value": "57.27"
+      },
+      "vatRate": "21.00"
+    }
+  ],
+  "locale": "nl_NL",
+  "metadata": {
+    "description": "Lego cars",
+    "order_id": "1337"
+  },
+  "method": "ideal",
+  "mode": "live",
+  "orderNumber": "1337",
+  "profileId": "pfl_URR55HPMGx",
+  "redirectUrl": "https://example.org/redirect",
+  "resource": "order",
+  "shippingAddress": {
+    "city": "Haarlem",
+    "country": "NL",
+    "email": "norris@chucknorrisfacts.net",
+    "familyName": "Norris",
+    "givenName": "Chuck",
+    "postalCode": "5678AB",
+    "region": "Noord-Holland",
+    "streetAdditional": "4th floor",
+    "streetAndNumber": "Keizersgracht 313",
+    "title": "Mr."
+  },
+  "status": "created",
+  "webhookUrl": "https://example.org/webhook"
 }

@@ -1,166 +1,166 @@
 {
-  "count": 3,
   "_embedded": {
     "orders": [
       {
-        "resource": "order",
+        "amount": {
+          "currency": "EUR",
+          "value": "1027.99"
+        },
+        "billingAddress": {
+          "city": "Amsterdam",
+          "country": "NL",
+          "email": "piet@mondriaan.com",
+          "familyName": "Mondriaan",
+          "givenName": "Piet",
+          "phone": "+31309202070",
+          "postalCode": "1234AB",
+          "region": "Noord-Holland",
+          "streetAndNumber": "Keizersgracht 313",
+          "title": "Dhr."
+        },
+        "consumerDateOfBirth": "1958-01-31",
+        "createdAt": "2018-08-02T09:29:56+00:00",
+        "expiresAt": "2018-08-30T09:29:56+00:00",
         "id": "ord_kEn1PlbGa",
+        "isCancelable": true,
+        "locale": "nl_NL",
+        "metadata": {
+          "description": "Lego cars",
+          "order_id": "1337"
+        },
+        "method": "ideal",
+        "mode": "live",
+        "orderNumber": "1337",
         "profileId": "pfl_URR55HPMGx",
-        "method": "ideal",
-        "amount": {
-          "value": "1027.99",
-          "currency": "EUR"
+        "redirectUrl": "https://example.org/redirect",
+        "resource": "order",
+        "shippingAddress": {
+          "city": "Haarlem",
+          "country": "NL",
+          "email": "norris@chucknorrisfacts.net",
+          "familyName": "Norris",
+          "givenName": "Chuck",
+          "postalCode": "5678AB",
+          "region": "Noord-Holland",
+          "streetAdditional": "4th floor",
+          "streetAndNumber": "Keizersgracht 313",
+          "title": "Mr."
         },
         "status": "created",
-        "isCancelable": true,
-        "metadata": {
-          "order_id": "1337",
-          "description": "Lego cars"
-        },
-        "createdAt": "2018-08-02T09:29:56+00:00",
-        "expiresAt": "2018-08-30T09:29:56+00:00",
-        "mode": "live",
-        "locale": "nl_NL",
-        "billingAddress": {
-          "streetAndNumber": "Keizersgracht 313",
-          "city": "Amsterdam",
-          "region": "Noord-Holland",
-          "postalCode": "1234AB",
-          "country": "NL",
-          "title": "Dhr.",
-          "givenName": "Piet",
-          "familyName": "Mondriaan",
-          "email": "piet@mondriaan.com",
-          "phone": "+31309202070"
-        },
-        "consumerDateOfBirth": "1958-01-31",
-        "orderNumber": "1337",
-        "shippingAddress": {
-          "streetAndNumber": "Keizersgracht 313",
-          "streetAdditional": "4th floor",
-          "city": "Haarlem",
-          "region": "Noord-Holland",
-          "postalCode": "5678AB",
-          "country": "NL",
-          "title": "Mr.",
-          "givenName": "Chuck",
-          "familyName": "Norris",
-          "email": "norris@chucknorrisfacts.net"
-        },
-        "redirectUrl": "https://example.org/redirect",
         "webhookUrl": "https://example.org/webhook"
       },
       {
-        "resource": "order",
+        "amount": {
+          "currency": "EUR",
+          "value": "1027.99"
+        },
+        "billingAddress": {
+          "city": "Amsterdam",
+          "country": "NL",
+          "email": "piet@mondriaan.com",
+          "familyName": "Mondriaan",
+          "givenName": "Piet",
+          "phone": "+31309202070",
+          "postalCode": "1234AB",
+          "region": "Noord-Holland",
+          "streetAndNumber": "Keizersgracht 313",
+          "title": "Dhr."
+        },
+        "consumerDateOfBirth": "1958-01-31",
+        "createdAt": "2018-08-02T09:29:56+00:00",
+        "expiresAt": "2018-08-30T09:29:56+00:00",
         "id": "ord_kEn1PlbGb",
-        "profileId": "pfl_URR55HPMGy",
+        "isCancelable": true,
+        "locale": "nl_NL",
+        "metadata": {
+          "description": "Lego cars",
+          "order_id": "1338"
+        },
         "method": "ideal",
-        "amount": {
-          "value": "1027.99",
-          "currency": "EUR"
+        "mode": "live",
+        "orderNumber": "1337",
+        "profileId": "pfl_URR55HPMGy",
+        "redirectUrl": "https://example.org/redirect",
+        "resource": "order",
+        "shippingAddress": {
+          "city": "Haarlem",
+          "country": "NL",
+          "email": "norris@chucknorrisfacts.net",
+          "familyName": "Norris",
+          "givenName": "Chuck",
+          "postalCode": "5678AB",
+          "region": "Noord-Holland",
+          "streetAdditional": "4th floor",
+          "streetAndNumber": "Keizersgracht 313",
+          "title": "Mr."
         },
         "status": "created",
-        "isCancelable": true,
-        "metadata": {
-          "order_id": "1338",
-          "description": "Lego cars"
-        },
-        "createdAt": "2018-08-02T09:29:56+00:00",
-        "expiresAt": "2018-08-30T09:29:56+00:00",
-        "mode": "live",
-        "locale": "nl_NL",
-        "billingAddress": {
-          "streetAndNumber": "Keizersgracht 313",
-          "city": "Amsterdam",
-          "region": "Noord-Holland",
-          "postalCode": "1234AB",
-          "country": "NL",
-          "title": "Dhr.",
-          "givenName": "Piet",
-          "familyName": "Mondriaan",
-          "email": "piet@mondriaan.com",
-          "phone": "+31309202070"
-        },
-        "consumerDateOfBirth": "1958-01-31",
-        "orderNumber": "1337",
-        "shippingAddress": {
-          "streetAndNumber": "Keizersgracht 313",
-          "streetAdditional": "4th floor",
-          "city": "Haarlem",
-          "region": "Noord-Holland",
-          "postalCode": "5678AB",
-          "country": "NL",
-          "title": "Mr.",
-          "givenName": "Chuck",
-          "familyName": "Norris",
-          "email": "norris@chucknorrisfacts.net"
-        },
-        "redirectUrl": "https://example.org/redirect",
         "webhookUrl": "https://example.org/webhook"
       },
       {
-        "resource": "order",
-        "id": "ord_kEn1PlbGc",
-        "profileId": "pfl_URR55HPMGz",
-        "method": "ideal",
         "amount": {
-          "value": "1027.99",
-          "currency": "EUR"
+          "currency": "EUR",
+          "value": "1027.99"
         },
-        "status": "created",
-        "isCancelable": true,
-        "metadata": {
-          "order_id": "1339",
-          "description": "Lego cars"
-        },
-        "createdAt": "2018-08-02T09:29:56+00:00",
-        "expiresAt": "2018-08-30T09:29:56+00:00",
-        "mode": "live",
-        "locale": "nl_NL",
         "billingAddress": {
-          "streetAndNumber": "Keizersgracht 313",
           "city": "Amsterdam",
-          "region": "Noord-Holland",
-          "postalCode": "1234AB",
           "country": "NL",
-          "title": "Dhr.",
-          "givenName": "Piet",
-          "familyName": "Mondriaan",
           "email": "piet@mondriaan.com",
-          "phone": "+31309202070"
+          "familyName": "Mondriaan",
+          "givenName": "Piet",
+          "phone": "+31309202070",
+          "postalCode": "1234AB",
+          "region": "Noord-Holland",
+          "streetAndNumber": "Keizersgracht 313",
+          "title": "Dhr."
         },
         "consumerDateOfBirth": "1958-01-31",
-        "orderNumber": "1337",
-        "shippingAddress": {
-          "streetAndNumber": "Keizersgracht 313",
-          "streetAdditional": "4th floor",
-          "city": "Haarlem",
-          "region": "Noord-Holland",
-          "postalCode": "5678AB",
-          "country": "NL",
-          "title": "Mr.",
-          "givenName": "Chuck",
-          "familyName": "Norris",
-          "email": "norris@chucknorrisfacts.net"
+        "createdAt": "2018-08-02T09:29:56+00:00",
+        "expiresAt": "2018-08-30T09:29:56+00:00",
+        "id": "ord_kEn1PlbGc",
+        "isCancelable": true,
+        "locale": "nl_NL",
+        "metadata": {
+          "description": "Lego cars",
+          "order_id": "1339"
         },
+        "method": "ideal",
+        "mode": "live",
+        "orderNumber": "1337",
+        "profileId": "pfl_URR55HPMGz",
         "redirectUrl": "https://example.org/redirect",
+        "resource": "order",
+        "shippingAddress": {
+          "city": "Haarlem",
+          "country": "NL",
+          "email": "norris@chucknorrisfacts.net",
+          "familyName": "Norris",
+          "givenName": "Chuck",
+          "postalCode": "5678AB",
+          "region": "Noord-Holland",
+          "streetAdditional": "4th floor",
+          "streetAndNumber": "Keizersgracht 313",
+          "title": "Mr."
+        },
+        "status": "created",
         "webhookUrl": "https://example.org/webhook"
       }
     ]
   },
   "_links": {
-    "self": {
-      "href": "https://api.mollie.com/v2/orders",
-      "type": "application/hal+json"
+    "documentation": {
+      "href": "https://docs.mollie.com/reference/v2/orders-api/list-orders",
+      "type": "text/html"
     },
-    "previous": null,
     "next": {
       "href": "https://api.mollie.com/v2/orders?from=ord_stTC2WHAuS",
       "type": "application/hal+json"
     },
-    "documentation": {
-      "href": "https://docs.mollie.com/reference/v2/orders-api/list-orders",
-      "type": "text/html"
+    "previous": null,
+    "self": {
+      "href": "https://api.mollie.com/v2/orders",
+      "type": "application/hal+json"
     }
-  }
+  },
+  "count": 3
 }

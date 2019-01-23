@@ -1,3 +1,6 @@
+## Edited by WeGroup on 23/01/2019
+> TESTS/README might be wrong use with cautious!
+
 <p align="center">
   <img src="https://info.mollie.com/hubfs/github/python/logo.png" width="128" height="128"/>
 </p>
@@ -67,13 +70,13 @@ Find our full documentation online on [docs.mollie.com](https://docs.mollie.com)
 Importing the Mollie API Client
 ```python
 from mollie.api.client import Client
-``` 
+```
 Initializing the Mollie API client, and setting your API key
 
 ```python
 mollie_client = Client()
 mollie_client.set_api_key('test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM')
-``` 
+```
 
 Creating a new payment.
 
@@ -81,7 +84,7 @@ Creating a new payment.
 payment = mollie_client.payments.create({
     'amount': {
         'currency': 'EUR',
-        'value': '10.00' 
+        'value': '10.00'
     },
     'description': 'My first API payment',
     'redirectUrl': 'https://webshop.example.org/order/12345/',
@@ -90,7 +93,7 @@ payment = mollie_client.payments.create({
 ```
 _After creation, the payment id is available in the `payment.id` property. You should store this id with your order._
 
-After storing the payment id you can send the customer to the checkout using the `payment.checkout_url`.  
+After storing the payment id you can send the customer to the checkout using the `payment.checkout_url`.
 
 For a payment create example, see [Example 1 - New Payment](https://github.com/mollie/mollie-api-python/blob/master/examples/01-new-payment.py).
 
@@ -116,7 +119,7 @@ For an extensive example of listing payments with the details and status, see [E
 
 ## Payment webhook ##
 
-When the status of a payment changes the `webhookUrl` we specified in the creation of the payment will be called.  
+When the status of a payment changes the `webhookUrl` we specified in the creation of the payment will be called.
 There we can use the `id` from our POST parameters to check te status and act upon that, see [Example 2 - Webhook verification](https://github.com/mollie/mollie-api-python/blob/master/examples/02-webhook-verification.py).
 
 
@@ -127,7 +130,7 @@ A full list of available currencies can be found [in our documentation](https://
 ```python
 payment = mollie_client.payments.create({
     'amount': {
-        'currency': 'USD', 
+        'currency': 'USD',
         'value': '10.00'
     },
     'description': 'Order #12345',
@@ -139,8 +142,8 @@ _After the customer completes the payment, the `payment.settlement_amount` will 
 
 ### Fully integrated iDEAL payments ###
 
-If you want to fully integrate iDEAL payments in your web site, some additional steps are required. 
-First, you need to retrieve the list of issuers (banks) that support iDEAL and have your customer pick the issuer 
+If you want to fully integrate iDEAL payments in your web site, some additional steps are required.
+First, you need to retrieve the list of issuers (banks) that support iDEAL and have your customer pick the issuer
 he/she wants to use for the payment.
 
 Retrieve the iDEAL method and include the issuers
@@ -155,7 +158,7 @@ _`method.issuers` will be a list of Issuer objects. Use the property `id` of thi
 ```python
 payment = mollie_client.payments.create({
     'amount': {
-        'currency': 'EUR', 
+        'currency': 'EUR',
         'value': '10.00'
     },
     'description': 'My first API payment',
@@ -170,7 +173,7 @@ The `payment.checkout_url` is a URL that points directly to the online banking e
 ### Refunding payments ###
 
 The API also supports refunding payments. Note that there is no confirmation and that all refunds are immediate and
-definitive. Refunds are only supported for iDEAL, credit card, Bancontact, SOFORT Banking, PayPal, Belfius Direct Net, KBC/CBC, 
+definitive. Refunds are only supported for iDEAL, credit card, Bancontact, SOFORT Banking, PayPal, Belfius Direct Net, KBC/CBC,
 ING Home'Pay and bank transfer payments. Other types of payments cannot be refunded through our API at the moment.
 
 ```python

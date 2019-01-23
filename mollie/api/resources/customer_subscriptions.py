@@ -4,17 +4,20 @@ from .base import Base
 
 
 class CustomerSubscriptions(Base):
-    RESOURCE_ID_PREFIX = 'sub_'
+    RESOURCE_ID_PREFIX = "sub_"
     customer_id = None
 
     def get_resource_object(self, result):
         return Subscription(result, self)
 
     def get(self, subscription_id, **params):
-        if not subscription_id or not subscription_id.startswith(self.RESOURCE_ID_PREFIX):
+        if not subscription_id or not subscription_id.startswith(
+            self.RESOURCE_ID_PREFIX
+        ):
             raise IdentifierError(
                 "Invalid subscription ID: '{id}'. A subscription ID should start with '{prefix}'.".format(
-                    id=subscription_id, prefix=self.RESOURCE_ID_PREFIX)
+                    id=subscription_id, prefix=self.RESOURCE_ID_PREFIX
+                )
             )
         return super(CustomerSubscriptions, self).get(subscription_id, **params)
 
@@ -24,16 +27,19 @@ class CustomerSubscriptions(Base):
         Deleting a subscription causes the subscription status to changed to 'canceled'.
         The updated subscription object is returned.
         """
-        if not subscription_id or not subscription_id.startswith(self.RESOURCE_ID_PREFIX):
+        if not subscription_id or not subscription_id.startswith(
+            self.RESOURCE_ID_PREFIX
+        ):
             raise IdentifierError(
                 "Invalid subscription ID: '{id}'. A subscription ID should start with '{prefix}'.".format(
-                    id=subscription_id, prefix=self.RESOURCE_ID_PREFIX)
+                    id=subscription_id, prefix=self.RESOURCE_ID_PREFIX
+                )
             )
         result = super(CustomerSubscriptions, self).delete(subscription_id, data)
         return self.get_resource_object(result)
 
     def get_resource_name(self):
-        return 'customers/{id}/subscriptions'.format(id=self.customer_id)
+        return "customers/{id}/subscriptions".format(id=self.customer_id)
 
     def with_parent_id(self, customer_id):
         self.customer_id = customer_id

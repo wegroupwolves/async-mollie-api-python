@@ -1,155 +1,5 @@
 {
-  "resource": "order",
-  "id": "ord_kEn1PlbGa",
-  "profileId": "pfl_URR55HPMGx",
-  "amount": {
-    "value": "1027.99",
-    "currency": "EUR"
-  },
-  "status": "canceled",
-  "isCancelable": false,
-  "metadata": null,
-  "createdAt": "2018-08-02T09:29:56+00:00",
-  "mode": "live",
-  "locale": "nl_NL",
-  "billingAddress": {
-    "streetAndNumber": "Keizersgracht 313",
-    "postalCode": "1016 EE",
-    "city": "Amsterdam",
-    "country": "nl",
-    "givenName": "Luke",
-    "familyName": "Skywalker",
-    "email": "luke@skywalker.com"
-  },
-  "orderNumber": "18475",
-  "shippingAddress": {
-    "streetAndNumber": "Keizersgracht 313",
-    "postalCode": "1016 EE",
-    "city": "Amsterdam",
-    "country": "nl",
-    "givenName": "Luke",
-    "familyName": "Skywalker",
-    "email": "luke@skywalker.com"
-  },
-  "canceledAt": "2018-08-03T09:29:56+00:00",
-  "redirectUrl": "https://example.org/redirect",
-  "lines": [
-    {
-      "resource": "orderline",
-      "id": "odl_dgtxyl",
-      "orderId": "ord_kEn1PlbGa",
-      "name": "LEGO 42083 Bugatti Chiron",
-      "sku": "5702016116977",
-      "type": "physical",
-      "status": "canceled",
-      "isCancelable": false,
-      "quantity": 2,
-      "quantityShipped": 0,
-      "amountShipped": {
-        "value": "0.00",
-        "currency": "EUR"
-      },
-      "quantityRefunded": 0,
-      "amountRefunded": {
-        "value": "0.00",
-        "currency": "EUR"
-      },
-      "quantityCanceled": 2,
-      "amountCanceled": {
-        "value": "698.00",
-        "currency": "EUR"
-      },
-      "shippableQuantity": 0,
-      "refundableQuantity": 0,
-      "cancelableQuantity": 0,
-      "unitPrice": {
-        "value": "399.00",
-        "currency": "EUR"
-      },
-      "vatRate": "21.00",
-      "vatAmount": {
-        "value": "121.14",
-        "currency": "EUR"
-      },
-      "discountAmount": {
-        "value": "100.00",
-        "currency": "EUR"
-      },
-      "totalAmount": {
-        "value": "698.00",
-        "currency": "EUR"
-      },
-      "createdAt": "2018-08-02T09:29:56+00:00",
-      "_links": {
-        "productUrl": {
-          "href": "https://shop.lego.com/nl-NL/Bugatti-Chiron-42083",
-          "type": "text/html"
-        },
-        "imageUrl": {
-          "href": "https://sh-s7-live-s.legocdn.com/is/image//LEGO/42083_alt1?$main$",
-          "type": "text/html"
-        }
-      }
-    },
-    {
-      "resource": "orderline",
-      "id": "odl_jp31jz",
-      "orderId": "ord_kEn1PlbGa",
-      "name": "LEGO 42056 Porsche 911 GT3 RS",
-      "sku": "5702015594028",
-      "type": "physical",
-      "status": "canceled",
-      "isCancelable": false,
-      "quantity": 1,
-      "quantityShipped": 0,
-      "amountShipped": {
-        "value": "0.00",
-        "currency": "EUR"
-      },
-      "quantityRefunded": 0,
-      "amountRefunded": {
-        "value": "0.00",
-        "currency": "EUR"
-      },
-      "quantityCanceled": 1,
-      "amountCanceled": {
-        "value": "329.99",
-        "currency": "EUR"
-      },
-      "shippableQuantity": 0,
-      "refundableQuantity": 0,
-      "cancelableQuantity": 0,
-      "unitPrice": {
-        "value": "329.99",
-        "currency": "EUR"
-      },
-      "vatRate": "21.00",
-      "vatAmount": {
-        "value": "57.27",
-        "currency": "EUR"
-      },
-      "totalAmount": {
-        "value": "329.99",
-        "currency": "EUR"
-      },
-      "createdAt": "2018-08-02T09:29:56+00:00",
-      "_links": {
-        "productUrl": {
-          "href": "https://shop.lego.com/nl-NL/Porsche-911-GT3-RS-42056",
-          "type": "text/html"
-        },
-        "imageUrl": {
-          "href": "https://sh-s7-live-s.legocdn.com/is/image/LEGO/42056?$PDPDefault$",
-          "type": "text/html"
-        }
-      }
-    }
-  ],
   "_links": {
-    "self": {
-      "href": "https://api.mollie.com/v2/orders/ord_pbjz8x",
-      "type": "application/hal+json"
-    },
     "checkout": {
       "href": "https://www.mollie.com/payscreen/order/checkout/pbjz8x",
       "type": "text/html"
@@ -157,6 +7,156 @@
     "documentation": {
       "href": "https://docs.mollie.com/reference/v2/orders-api/get-order",
       "type": "text/html"
+    },
+    "self": {
+      "href": "https://api.mollie.com/v2/orders/ord_pbjz8x",
+      "type": "application/hal+json"
     }
-  }
+  },
+  "amount": {
+    "currency": "EUR",
+    "value": "1027.99"
+  },
+  "billingAddress": {
+    "city": "Amsterdam",
+    "country": "nl",
+    "email": "luke@skywalker.com",
+    "familyName": "Skywalker",
+    "givenName": "Luke",
+    "postalCode": "1016 EE",
+    "streetAndNumber": "Keizersgracht 313"
+  },
+  "canceledAt": "2018-08-03T09:29:56+00:00",
+  "createdAt": "2018-08-02T09:29:56+00:00",
+  "id": "ord_kEn1PlbGa",
+  "isCancelable": false,
+  "lines": [
+    {
+      "_links": {
+        "imageUrl": {
+          "href": "https://sh-s7-live-s.legocdn.com/is/image//LEGO/42083_alt1?$main$",
+          "type": "text/html"
+        },
+        "productUrl": {
+          "href": "https://shop.lego.com/nl-NL/Bugatti-Chiron-42083",
+          "type": "text/html"
+        }
+      },
+      "amountCanceled": {
+        "currency": "EUR",
+        "value": "698.00"
+      },
+      "amountRefunded": {
+        "currency": "EUR",
+        "value": "0.00"
+      },
+      "amountShipped": {
+        "currency": "EUR",
+        "value": "0.00"
+      },
+      "cancelableQuantity": 0,
+      "createdAt": "2018-08-02T09:29:56+00:00",
+      "discountAmount": {
+        "currency": "EUR",
+        "value": "100.00"
+      },
+      "id": "odl_dgtxyl",
+      "isCancelable": false,
+      "name": "LEGO 42083 Bugatti Chiron",
+      "orderId": "ord_kEn1PlbGa",
+      "quantity": 2,
+      "quantityCanceled": 2,
+      "quantityRefunded": 0,
+      "quantityShipped": 0,
+      "refundableQuantity": 0,
+      "resource": "orderline",
+      "shippableQuantity": 0,
+      "sku": "5702016116977",
+      "status": "canceled",
+      "totalAmount": {
+        "currency": "EUR",
+        "value": "698.00"
+      },
+      "type": "physical",
+      "unitPrice": {
+        "currency": "EUR",
+        "value": "399.00"
+      },
+      "vatAmount": {
+        "currency": "EUR",
+        "value": "121.14"
+      },
+      "vatRate": "21.00"
+    },
+    {
+      "_links": {
+        "imageUrl": {
+          "href": "https://sh-s7-live-s.legocdn.com/is/image/LEGO/42056?$PDPDefault$",
+          "type": "text/html"
+        },
+        "productUrl": {
+          "href": "https://shop.lego.com/nl-NL/Porsche-911-GT3-RS-42056",
+          "type": "text/html"
+        }
+      },
+      "amountCanceled": {
+        "currency": "EUR",
+        "value": "329.99"
+      },
+      "amountRefunded": {
+        "currency": "EUR",
+        "value": "0.00"
+      },
+      "amountShipped": {
+        "currency": "EUR",
+        "value": "0.00"
+      },
+      "cancelableQuantity": 0,
+      "createdAt": "2018-08-02T09:29:56+00:00",
+      "id": "odl_jp31jz",
+      "isCancelable": false,
+      "name": "LEGO 42056 Porsche 911 GT3 RS",
+      "orderId": "ord_kEn1PlbGa",
+      "quantity": 1,
+      "quantityCanceled": 1,
+      "quantityRefunded": 0,
+      "quantityShipped": 0,
+      "refundableQuantity": 0,
+      "resource": "orderline",
+      "shippableQuantity": 0,
+      "sku": "5702015594028",
+      "status": "canceled",
+      "totalAmount": {
+        "currency": "EUR",
+        "value": "329.99"
+      },
+      "type": "physical",
+      "unitPrice": {
+        "currency": "EUR",
+        "value": "329.99"
+      },
+      "vatAmount": {
+        "currency": "EUR",
+        "value": "57.27"
+      },
+      "vatRate": "21.00"
+    }
+  ],
+  "locale": "nl_NL",
+  "metadata": null,
+  "mode": "live",
+  "orderNumber": "18475",
+  "profileId": "pfl_URR55HPMGx",
+  "redirectUrl": "https://example.org/redirect",
+  "resource": "order",
+  "shippingAddress": {
+    "city": "Amsterdam",
+    "country": "nl",
+    "email": "luke@skywalker.com",
+    "familyName": "Skywalker",
+    "givenName": "Luke",
+    "postalCode": "1016 EE",
+    "streetAndNumber": "Keizersgracht 313"
+  },
+  "status": "canceled"
 }
