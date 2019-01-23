@@ -9,11 +9,12 @@ class Customers(Base):
     def get_resource_object(self, result):
         return Customer(result, self)
 
-    def get(self, customer_id, **params):
+    async def get(self, customer_id, **params):
         if not customer_id or not customer_id.startswith(self.RESOURCE_ID_PREFIX):
             raise IdentifierError(
                 "Invalid customer ID: '{id}'. A customer ID should start with '{prefix}'.".format(
                     id=customer_id, prefix=self.RESOURCE_ID_PREFIX
                 )
             )
-        return super(Customers, self).get(customer_id, **params)
+        result = await super(Customers, self).get(customer_id, **params)
+        return result

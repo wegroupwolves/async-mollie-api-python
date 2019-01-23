@@ -10,14 +10,15 @@ class CustomerMandates(Base):
     def get_resource_object(self, result):
         return Mandate(result, self)
 
-    def get(self, mandate_id, **params):
+    async def get(self, mandate_id, **params):
         if not mandate_id or not mandate_id.startswith(self.RESOURCE_ID_PREFIX):
             raise IdentifierError(
                 "Invalid mandate ID: '{id}'. A mandate ID should start with '{prefix}'.".format(
                     id=mandate_id, prefix=self.RESOURCE_ID_PREFIX
                 )
             )
-        return super(CustomerMandates, self).get(mandate_id, **params)
+        result = await super(CustomerMandates, self).get(mandate_id, **params)
+        return result
 
     def get_resource_name(self):
         return "customers/{id}/mandates".format(id=self.customer_id)

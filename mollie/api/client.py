@@ -3,6 +3,7 @@ import json
 import platform
 import re
 import ssl
+import asyncio
 
 import requests
 
@@ -86,7 +87,7 @@ class Client(object):
     def set_timeout(self, timeout):
         self.timeout = timeout
 
-    def perform_http_call(self, http_method, path, data=None, params=None):
+    async def perform_http_call(self, http_method, path, data=None, params=None):
         if not self.api_key:
             raise RequestSetupError(
                 "You have not set an API key. Please use set_api_key() to set the API key."
@@ -110,21 +111,24 @@ class Client(object):
             params = None
 
         try:
-            response = requests.request(
-                http_method,
-                url,
-                verify=True,
-                headers={
-                    "Accept": "application/json",
-                    "Authorization": "Bearer {api_key}".format(api_key=self.api_key),
-                    "Content-Type": "application/json",
-                    "User-Agent": self.USER_AGENT,
-                    "X-Mollie-Client-Info": self.UNAME,
-                },
-                params=params,
-                data=data,
-                timeout=self.timeout,
-            )
+            loop = asyncio.get_event_loop()
+            def blocking_request(self, http_method, url, params, data):
+                return requests.request(
+                    http_method,
+                    url,
+                    verify=True,
+                    headers={
+                        "Accept": "application/json",
+                        "Authorization": "Bearer {api_key}".format(api_key=self.api_key),
+                        "Content-Type": "application/json",
+                        "User-Agent": self.USER_AGENT,
+                        "X-Mollie-Client-Info": self.UNAME,
+                    },
+                    params=params,
+                    data=data,
+                    timeout=self.timeout,
+                )
+            response = await loop.run_in_executor(None, blocking_request, self, http_method, url, params, data)
         except Exception as err:
             raise RequestError(
                 "Unable to communicate with Mollie: {error}".format(error=err)

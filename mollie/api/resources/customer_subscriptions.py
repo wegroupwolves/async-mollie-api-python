@@ -10,7 +10,7 @@ class CustomerSubscriptions(Base):
     def get_resource_object(self, result):
         return Subscription(result, self)
 
-    def get(self, subscription_id, **params):
+    async def get(self, subscription_id, **params):
         if not subscription_id or not subscription_id.startswith(
             self.RESOURCE_ID_PREFIX
         ):
@@ -19,9 +19,10 @@ class CustomerSubscriptions(Base):
                     id=subscription_id, prefix=self.RESOURCE_ID_PREFIX
                 )
             )
-        return super(CustomerSubscriptions, self).get(subscription_id, **params)
+        result = await super(CustomerSubscriptions, self).get(subscription_id, **params)
+        return result
 
-    def delete(self, subscription_id, data=None):
+    async def delete(self, subscription_id, data=None):
         """Cancel subscription and return the subscription object.
 
         Deleting a subscription causes the subscription status to changed to 'canceled'.
@@ -35,7 +36,7 @@ class CustomerSubscriptions(Base):
                     id=subscription_id, prefix=self.RESOURCE_ID_PREFIX
                 )
             )
-        result = super(CustomerSubscriptions, self).delete(subscription_id, data)
+        result = await super(CustomerSubscriptions, self).delete(subscription_id, data)
         return self.get_resource_object(result)
 
     def get_resource_name(self):

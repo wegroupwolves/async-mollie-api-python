@@ -56,12 +56,11 @@ class Mandate(Base):
         """Check if the mandate is invalid."""
         return self.status == self.STATUS_INVALID
 
-    @property
-    def customer(self):
+    async def get_customer(self):
         """Return the customer for this mandate."""
         from .customer import Customer  # work around circular imports
 
         url = self._get_link("customer")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return Customer(resp)

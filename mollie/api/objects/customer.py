@@ -41,32 +41,29 @@ class Customer(Base):
     def created_at(self):
         return self._get_property("createdAt")
 
-    @property
-    def subscriptions(self):
+    async def get_subscriptions(self):
         """Return the subscription list for the customer."""
         from .subscription import Subscription
 
         url = self._get_link("subscriptions")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return List(resp, Subscription)
 
-    @property
-    def mandates(self):
+    async def get_mandates(self):
         """Return the mandate list for the customer."""
         from .mandate import Mandate  # work around circular import
 
         url = self._get_link("mandates")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return List(resp, Mandate)
 
-    @property
-    def payments(self):
+    async def get_payments(self):
         """Return the payment list for the customer."""
         from .payment import Payment  # work around circular import
 
         url = self._get_link("payments")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return List(resp, Payment)

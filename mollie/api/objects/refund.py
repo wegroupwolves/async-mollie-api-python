@@ -62,18 +62,16 @@ class Refund(Base):
 
     # documented _links
 
-    @property
-    def payment(self):
+    async def get_payment(self):
         """Return the payment for this refund."""
         from .payment import Payment
 
         url = self._get_link("payment")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return Payment(resp)
 
-    @property
-    def settlement(self):
+    async def get_settlement(self):
         """
         Return the settlement for this refund.
 
@@ -81,17 +79,16 @@ class Refund(Base):
         """
         url = self._get_link("settlement")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return resp
 
-    @property
-    def order(self):
+    async def get_order(self):
         """Return the order for this refund."""
         from ..resources.orders import Order
 
         url = self._get_link("order")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return Order(resp, client=self.client)
 
     # additional methods

@@ -82,10 +82,9 @@ class Subscription(Base):
     def webhook_url(self):
         return self._get_property("webhookUrl")
 
-    @property
-    def customer(self):
+    async def get_customer(self):
         """Return the customer for this subscription."""
         url = self._get_link("customer")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return Customer(resp)

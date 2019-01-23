@@ -9,7 +9,7 @@ class Chargebacks(Base):
     def get_resource_object(self, result):
         return Chargeback(result)
 
-    def get(self, chargeback_id, **params):
+    async def get(self, chargeback_id, **params):
         """Verify the chargeback ID and retrieve the chargeback from the API."""
         if not chargeback_id or not chargeback_id.startswith(self.RESOURCE_ID_PREFIX):
             raise IdentifierError(
@@ -17,4 +17,5 @@ class Chargebacks(Base):
                     id=chargeback_id, prefix=self.RESOURCE_ID_PREFIX
                 )
             )
-        return super(Chargebacks, self).get(chargeback_id, **params)
+        result = await super(Chargebacks, self).get(chargeback_id, **params)
+        return result

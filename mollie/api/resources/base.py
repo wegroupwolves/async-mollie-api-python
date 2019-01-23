@@ -19,32 +19,33 @@ class Base(object):
     def get_resource_name(self):
         return self.__class__.__name__.lower()
 
-    def create(self, data=None, **params):
+    async def create(self, data=None, **params):
         path = self.get_resource_name()
-        result = self.perform_api_call(self.REST_CREATE, path, data, params)
+        result = await self.perform_api_call(self.REST_CREATE, path, data, params)
         return self.get_resource_object(result)
 
-    def get(self, resource_id, **params):
+    async def get(self, resource_id, **params):
         path = self.get_resource_name() + "/" + str(resource_id)
-        result = self.perform_api_call(self.REST_READ, path, params=params)
+        result = await self.perform_api_call(self.REST_READ, path, params=params)
         return self.get_resource_object(result)
 
-    def update(self, resource_id, data=None, **params):
+    async def update(self, resource_id, data=None, **params):
         path = self.get_resource_name() + "/" + str(resource_id)
-        result = self.perform_api_call(self.REST_UPDATE, path, data, params)
+        result = await self.perform_api_call(self.REST_UPDATE, path, data, params)
         return self.get_resource_object(result)
 
-    def delete(self, resource_id, data=None):
+    async def delete(self, resource_id, data=None):
         path = self.get_resource_name() + "/" + str(resource_id)
-        return self.perform_api_call(self.REST_DELETE, path, data)
+        result = await self.perform_api_call(self.REST_DELETE, path, data)
+        return result
 
-    def list(self, **params):
+    async def list(self, **params):
         path = self.get_resource_name()
-        result = self.perform_api_call(self.REST_LIST, path, params=params)
+        result = await self.perform_api_call(self.REST_LIST, path, params=params)
         return List(result, self.get_resource_object({}).__class__, client=self.client)
 
-    def perform_api_call(self, http_method, path, data=None, params=None):
-        resp = self.client.perform_http_call(http_method, path, data, params)
+    async def perform_api_call(self, http_method, path, data=None, params=None):
+        resp = await self.client.perform_http_call(http_method, path, data, params)
         if "application/hal+json" in resp.headers.get("Content-Type", ""):
             # set the content type according to the media type definition
             resp.encoding = "utf-8"

@@ -18,7 +18,7 @@ class OrderLines(Base):
     def on(self, order):
         return self.with_parent_id(order.id)
 
-    def delete(self, data, *args):
+    async def delete(self, data, *args):
         """
         Custom handling for deleting orderlines.
 

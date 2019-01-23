@@ -157,28 +157,25 @@ class Payment(Base):
     def checkout_url(self):
         return self._get_link("checkout")
 
-    @property
-    def refunds(self):
+    async def get_refunds(self):
         """Return the refunds related to this payment."""
         from .refund import Refund
 
         url = self._get_link("refunds")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return List(resp, Refund)
 
-    @property
-    def chargebacks(self):
+    async def get_chargebacks(self):
         """Return the chargebacks related to this payment."""
         from .chargeback import Chargeback
 
         url = self._get_link("chargebacks")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return List(resp, Chargeback)
 
-    @property
-    def settlement(self):
+    async def get_settlement(self):
         """
         Return the settlement for this payment.
 
@@ -186,47 +183,43 @@ class Payment(Base):
         """
         url = self._get_link("settlement")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return resp
 
-    @property
-    def mandate(self):
+    async def get_mandate(self):
         """Return the mandate for this payment."""
         from .mandate import Mandate
 
         url = self._get_link("mandate")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return Mandate(resp)
 
-    @property
-    def subscription(self):
+    async def get_subscription(self):
         """Return the subscription for this payment."""
         from .subscription import Subscription
 
         url = self._get_link("subscription")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return Subscription(resp)
 
-    @property
-    def customer(self):
+    async def get_customer(self):
         """Return the customer for this payment."""
         from .customer import Customer
 
         url = self._get_link("customer")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return Customer(resp)
 
-    @property
-    def order(self):
+    async def get_order(self):
         """Return the order for this payment. """
         from ..resources.orders import Order
 
         url = self._get_link("order")
         if url:
-            resp = self._resource.perform_api_call(self._resource.REST_READ, url)
+            resp = await self._resource.perform_api_call(self._resource.REST_READ, url)
             return Order(resp, client=self.client)
 
     # additional methods

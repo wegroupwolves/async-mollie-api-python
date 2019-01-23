@@ -88,7 +88,7 @@ setup(
         "klarna slice it",
     ],
     url="https://github.com/mollie/mollie-api-python",
-    install_requires=["requests"],
+    install_requires=["requests", "asyncio"],
     classifiers=[
         "Programming Language :: Python",
         "Programming Language :: Python :: 2",
